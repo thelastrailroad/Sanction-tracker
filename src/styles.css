@@ -1,0 +1,101 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@theme {
+  --font-sans: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --font-display: "Instrument Serif", "Iowan Old Style", Palatino, Georgia, serif;
+  --font-mono: "IBM Plex Mono", "SF Mono", ui-monospace, Menlo, Consolas, monospace;
+
+  --color-bg: #0b0d10;
+  --color-surface: #13161c;
+  --color-elevated: #1b1f27;
+  --color-fg: #e8e6e1;
+  --color-muted: #9a968c;
+  --color-subtle: #6e6b64;
+  --color-border: color-mix(in oklab, #e8e6e1 12%, transparent);
+  --color-border-strong: color-mix(in oklab, #e8e6e1 22%, transparent);
+  --color-accent: #c9d0d8;
+  --color-accent-fg: #0b0d10;
+  --color-signal: #c45c4a;
+  --color-watch: #c4a574;
+  --color-steady: #7d9a84;
+  --color-info: #8aa0b8;
+
+  --radius-xs: 0.25rem;
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+
+  --text-micro: 0.6875rem;
+  --text-micro--line-height: 1.4;
+  --text-xs: 0.75rem;
+  --text-xs--line-height: 1.4;
+  --text-sm: 0.875rem;
+  --text-sm--line-height: 1.5;
+  --text-base: 1rem;
+  --text-base--line-height: 1.55;
+  --text-lg: 1.125rem;
+  --text-lg--line-height: 1.4;
+  --text-xl: 1.35rem;
+  --text-xl--line-height: 1.25;
+  --text-2xl: 1.75rem;
+  --text-2xl--line-height: 1.15;
+  --text-3xl: 2.35rem;
+  --text-3xl--line-height: 1.05;
+  --text-4xl: 3.25rem;
+  --text-4xl--line-height: 0.95;
+
+  --ease-smooth: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  html,
+  body,
+  #app {
+    min-height: 100%;
+    background: var(--color-bg);
+    color: var(--color-fg);
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-image:
+      linear-gradient(180deg, color-mix(in oklab, var(--color-fg) 3.5%, transparent), transparent 180px);
+  }
+
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+
+  ::selection {
+    background: color-mix(in oklab, var(--color-signal) 35%, transparent);
+    color: var(--color-fg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

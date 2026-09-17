@@ -1,0 +1,68 @@
+import type { Sector } from "./types";
+
+export const SECTORS: Sector[] = [
+  {
+    id: "auto",
+    name: "Automotive",
+    exposure: "Largest AGOA export. BMW, Mercedes, Ford, Toyota value chains through PE, East London, Rosslyn.",
+    usLeverage: "AGOA drop + existing 25% Section 232 vehicle tariff. Plants can re-route to EU/UK, not overnight.",
+    risk: "high",
+    notes: "The political hostage. A beneficiary-list drop is felt in Gauteng and the Eastern Cape within a quarter.",
+  },
+  {
+    id: "citrus",
+    name: "Citrus & wine",
+    exposure: "Western Cape and Limpopo exporters. Seasonal, dollar-invoiced, AGOA-sensitive.",
+    usLeverage: "AGOA eligibility and phytosanitary friction. Fast to hurt, easy to message on the Hill.",
+    risk: "high",
+    notes: "Farm-level pain is the point of a preference cut. Watch the 2027 shipping season bookings.",
+  },
+  {
+    id: "pgm",
+    name: "Platinum group & chrome / manganese",
+    exposure: "SA is not optional in PGM, chrome, manganese, vanadium. China is already the dominant buyer.",
+    usLeverage: "Investment screening and offtake politics more than an embargo. A full SDN on miners is a tail risk because it hits US industry too.",
+    risk: "elevated",
+    notes: "The strategic reason Washington will prefer targeted tools over a country embargo — and the reason China will offer a market.",
+  },
+  {
+    id: "hiv",
+    name: "HIV / health system",
+    exposure: "PEPFAR ~$400m/year being drawn down. Highest human cost, limited sanctions-law content.",
+    usLeverage: "Already used. State tied remaining funds to incitement condemnations.",
+    risk: "high",
+    notes: "Not a financial-market channel. It is the domestic political channel inside South Africa.",
+  },
+  {
+    id: "banks",
+    name: "Banks & SOEs",
+    exposure: "USD clearing, trade finance, IDC/PIC, Transnet, Denel, Armscor.",
+    usLeverage: "Correspondent de-risking, Magnitsky on PEPs, 311 on an institution, SDN on a defence SOE.",
+    risk: "elevated",
+    notes: "This is how ‘financial sanctions’ actually arrive. Watch RMA cuts before any Federal Register drama.",
+  },
+  {
+    id: "defence",
+    name: "Defence industry",
+    exposure: "Denel, Armscor, Paramount, small dual-use shops. Lady R sits on this ledger.",
+    usLeverage: "Direct. Any Russia/Iran counterparty is designation-ready. ITAR already tight.",
+    risk: "critical",
+    notes: "Highest probability of a named entity designation if a new cargo fact appears.",
+  },
+  {
+    id: "ports",
+    name: "Ports & bunkering",
+    exposure: "Simon’s Town, Durban, Saldanha, ship-chandlers, insurers.",
+    usLeverage: "OFAC maritime advisories, shadow-fleet helper theory, Graham Act tariffs.",
+    risk: "high",
+    notes: "The physical place where military alignment becomes a financial case.",
+  },
+  {
+    id: "farmland",
+    name: "Commercial agriculture / land",
+    exposure: "Title risk under Expropriation Act 13 of 2024. US political predicate, not a large US FDI stock.",
+    usLeverage: "Visa list, Magnitsky on implementing officials, AGOA agri-lines.",
+    risk: "high",
+    notes: "A single gazetted nil-compensation taking of a working farm is worth more to the file than a year of communiqués.",
+  },
+];

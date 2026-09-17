@@ -1,0 +1,144 @@
+//#region node_modules/.nitro/vite/services/ssr/assets/envoys-CZElzyCI.js
+var US_MISSION = {
+	mission: "us",
+	post: "US Ambassador to South Africa",
+	name: "L. Brent Bozell III",
+	shortName: "Bozell",
+	initials: "LB",
+	status: "seated",
+	statusNote: "In Pretoria since March 2026. Conservative media figure; Trump political appointee.",
+	seated: "2026-03",
+	xUrl: "https://x.com/USEmbassySA",
+	webUrl: "https://za.usembassy.gov/",
+	line: "Hardens every State measure. His ‘first step’ language is how visa policy becomes a sanctions path."
+};
+var SA_MISSION = {
+	mission: "sa",
+	post: "SA Ambassador to the United States",
+	name: "Roelf Meyer",
+	shortName: "Meyer",
+	initials: "RM",
+	status: "seated",
+	statusNote: "Not vacant. Codesa-era NP negotiator. Appointed 14 Apr 2026 after a 13-month gap. Credentials 21 May 2026.",
+	seated: "2026-05-21",
+	xUrl: "https://www.saembassy.org/home/",
+	webUrl: "https://dirco.gov.za/washingtondc/",
+	line: "Channel restoration, not a policy U-turn. Speaks for de-escalation while DIRCO and Bozell talk past each other."
+};
+var VACANCY = {
+	start: "2025-03-15",
+	end: "2026-04-14",
+	predecessor: "Ebrahim Rasool",
+	why: "Declared persona non grata after a webinar remark that Trump was ‘mobilising a supremacism’. Rubio: ‘no longer welcome.’"
+};
+var FIVE_ASKS = [
+	"Protect rural communities from farm attacks",
+	"Publicly condemn incitement, including Kill the Boer",
+	"Fair, clear compensation in expropriation — no nil-compensation takings",
+	"End mandatory BEE ownership/control transfers as a cost of doing business",
+	"End association with Iran and US adversaries; be non-aligned in fact"
+];
+var ENVOY_CABLES = [
+	{
+		id: "sa-2026-09-17-meyer-talks",
+		mission: "sa",
+		date: "2026-09-17",
+		kind: "interview",
+		title: "Meyer: Pretoria still wants to talk",
+		quote: "We take note of what Secretary of State Rubio said, but we would like to continue engaging, and that is what we believe the task is.",
+		summary: "To News24, the Washington ambassador answered Bozell’s ‘no more dialogue’ line with the opposite: de-escalation, keep the channel open. That is the gap between the two missions this week.",
+		source: "News24 / Briefly",
+		sourceUrl: "https://briefly.co.za/south-africa/253469-roelf-meyer-south-africa-seeks-continued-talks-visa-restrictions/",
+		flagged: true
+	},
+	{
+		id: "us-2026-09-16-first-step",
+		mission: "us",
+		date: "2026-09-16",
+		kind: "social",
+		title: "Bozell: visa policy is only the first step",
+		quote: "The time for endless ‘dialogue’ has run its course. No more. America has just so much patience. … This visa restriction policy is only the first step in a series of escalatory measures that will show America’s firm resolve in this matter.",
+		summary: "Posted as Rubio announced INA 212(a)(3)(C) restrictions. The most important sentence on the US side of the corridor this week: more is coming, and talking is no longer the product.",
+		source: "US Embassy Pretoria / The Citizen",
+		sourceUrl: "https://www.citizen.co.za/news/south-africa/no-more-america-has-just-so-much-patience-bozell-warns-sa-of-more-to-come-after-visa-restrictions/",
+		flagged: true
+	},
+	{
+		id: "us-2026-09-16-embassy-x",
+		mission: "us",
+		date: "2026-09-16",
+		kind: "press",
+		title: "Mission SA republishes the Rubio visa announcement",
+		summary: "@USEmbassySA posted the State text on Afrikaner discrimination, land, and dehumanizing chants, and linked the embassy copy of the policy. Primary distribution inside South Africa.",
+		source: "U.S. Mission SA on X",
+		sourceUrl: "https://x.com/USEmbassySA/status/2100118007527707115",
+		flagged: true
+	},
+	{
+		id: "us-2026-06-24-iran",
+		mission: "us",
+		date: "2026-06-24",
+		kind: "social",
+		title: "Bozell: Iran red carpet and Mashatile in Beijing is a choice",
+		quote: "South Africa can’t claim the mantle of non-alignment while actively courting America’s adversaries. These are choices, and they speak for themselves.",
+		summary: "Hit DIRCO the same week Iran’s deputy foreign minister was in Pretoria and the deputy president was in Beijing. DIRCO answered two days later. Military-alignment file, in the ambassador’s voice.",
+		source: "US Embassy / DIRCO reply 26 Jun",
+		sourceUrl: "https://newsday.co.za/south-africa/20375/south-african-government-responds-to-comments-from-united-states-ambassador-to-south-africa-leo-brent-bozell-iii/",
+		flagged: true
+	},
+	{
+		id: "sa-2026-07-25-meyer-dm",
+		mission: "sa",
+		date: "2026-07-25",
+		kind: "interview",
+		title: "Meyer, to Daily Maverick: rebuild trust, trade, and the five asks",
+		summary: "First long interview after taking the post in earnest. Brief: expand trade and investment, keep talking on land and BEE, close the 16-month gap Rasool’s expulsion left in Washington. AfriForum criticised the appointment; Meyer said he has not been in a party for 15 years.",
+		source: "Daily Maverick",
+		sourceUrl: "https://www.dailymaverick.co.za/article/2026-07-25-ambassador-roelf-meyer-details-plans-for-mending-fractured-sa-us-relationship/"
+	},
+	{
+		id: "sa-2026-05-21-credentials",
+		mission: "sa",
+		date: "2026-05-21",
+		kind: "interview",
+		title: "Credentials to Trump — golf asked, not played",
+		quote: "He did ask whether I’m playing golf, which unfortunately [I am] not, but I promised that I would walk with him if he’s prepared to take me along. … It was a pleasant experience, it was very cordial.",
+		summary: "SABC, minutes after presenting credentials with 11 other ambassadors. Formal channel restored on the anniversary of the May 2025 Oval Office ambush. Meyer then returned to Pretoria to finish paperwork before taking up the post in July.",
+		source: "SABC / AmCham",
+		sourceUrl: "https://amcham.co.za/news/no-golf-roelf-meyer-sas-new-ambassador-us-will-walk-course"
+	},
+	{
+		id: "sa-2026-04-14-appointed",
+		mission: "sa",
+		date: "2026-04-14",
+		kind: "press",
+		title: "Ramaphosa appoints Roelf Meyer to Washington",
+		summary: "Fills the post vacant since Rasool’s March 2025 expulsion. Meyer was the NP’s chief Codesa negotiator opposite Ramaphosa. US agrément came faster than Pretoria expected.",
+		source: "Reuters / Presidency",
+		sourceUrl: "https://www.reuters.com/world/south-african-president-chooses-roelf-meyer-next-ambassador-us-2026-04-14/"
+	},
+	{
+		id: "us-2026-03-10-five-asks",
+		mission: "us",
+		date: "2026-03-10",
+		kind: "speech",
+		title: "Hermanus / BizNews: five asks, patience running out",
+		quote: "I’m sorry, I don’t care what your courts say. It’s hate speech.",
+		summary: "First public address in country. Five asks on rural violence, incitement, expropriation, BEE, and non-alignment (Iran/BRICS/ICJ). Said Pretoria’s non-response for a year was itself a statement, and that SA needed an ambassador in Washington.",
+		source: "TimesLIVE / BizNews Conference",
+		sourceUrl: "https://www.timeslive.co.za/politics/2026-03-11-us-is-running-out-of-patience-with-sa-warns-us-ambassador/",
+		flagged: true
+	},
+	{
+		id: "sa-2025-03-rasool",
+		mission: "sa",
+		date: "2025-03-15",
+		kind: "press",
+		title: "Rasool declared persona non grata — post goes vacant",
+		summary: "Rubio: race-baiting, hates America, no longer welcome. Rasool left ‘with no regrets.’ The Washington chair sat empty until Meyer — the longest break in the channel this crisis.",
+		source: "State / BBC",
+		sourceUrl: "https://www.bbc.com/news/articles/crmj8ky3rvno"
+	}
+];
+//#endregion
+export { VACANCY as a, US_MISSION as i, FIVE_ASKS as n, SA_MISSION as r, ENVOY_CABLES as t };
