@@ -1,4 +1,5 @@
-import { ChevronDown, ChevronUp, Star, X } from "lucide-react";
+import { useMemo, useState } from "react";
+import { ChevronDown, ChevronUp, Plus, Star, X } from "lucide-react";
 import { EVENTS } from "@/data";
 import { cn, formatDeskDate } from "@/lib/utils";
 import { useWatchStore } from "@/lib/watch-store";
@@ -26,12 +27,77 @@ export function HighlightToggle({
         "inline-flex h-11 items-center gap-1.5 rounded-md border px-2.5 text-sm",
         on
           ? "border-watch/40 bg-watch/10 text-watch"
-          : "border-border bg-elevated text-muted hover:text-fg",
+          : "border-border bg-elevated text-muted hover:border-watch/40 hover:text-watch",
       )}
     >
       <Star className={cn("size-4", on && "fill-watch")} strokeWidth={1.75} />
       {compact ? null : on ? `Rank ${String(rank).padStart(2, "0")}` : "Highlight"}
     </button>
+  );
+}
+
+function AddEventPicker() {
+  const highlighted = useWatchStore((s) => s.highlighted);
+  const toggle = useWatchStore((s) => s.toggleHighlight);
+  const [open, setOpen] = useState(false);
+  const [q, setQ] = useState("");
+
+  const available = useMemo(() => {
+    const query = q.trim().toLowerCase();
+    return EVENTS.filter((e) => !highlighted.includes(e.id)).filter((e) =>
+      query ? (e.title + e.summary + e.source).toLowerCase().includes(query) : true,
+    );
+  }, [highlighted, q]);
+
+  return (
+    <div className="relative">
+      <button
+        type="button"
+        onClick={() => setOpen((v) => !v)}
+        aria-expanded={open}
+        className="inline-flex h-11 items-center gap-2 rounded-md border border-watch/40 bg-watch/10 px-3 text-sm text-watch"
+      >
+        <Plus className="size-4" strokeWidth={1.75} />
+        Add event
+      </button>
+      {open ? (
+        <div className="absolute right-0 z-20 mt-2 w-[min(100vw-2rem,22rem)] rounded-lg border border-border bg-elevated p-3 shadow-lg">
+          <input
+            value={q}
+            onChange={(e) => setQ(e.target.value)}
+            placeholder="Search the signal log…"
+            autoFocus
+            className="h-11 w-full rounded-md border border-border bg-surface px-3 text-sm text-fg placeholder:text-subtle focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+          />
+          <ul className="mt-2 max-h-64 overflow-y-auto">
+            {available.slice(0, 12).map((e) => (
+              <li key={e.id}>
+                <button
+                  type="button"
+                  onClick={() => {
+                    toggle(e.id);
+                    setOpen(false);
+                    setQ("");
+                  }}
+                  className="flex w-full items-start gap-2 rounded-md px-2 py-2 text-left hover:bg-surface"
+                >
+                  <Star className="mt-0.5 size-4 shrink-0 text-watch" strokeWidth={1.75} />
+                  <span>
+                    <span className="block font-mono text-micro tabular-nums text-subtle">
+                      {formatDeskDate(e.date)}
+                    </span>
+                    <span className="block text-sm leading-snug">{e.title}</span>
+                  </span>
+                </button>
+              </li>
+            ))}
+          </ul>
+          {available.length === 0 ? (
+            <p className="px-2 py-3 text-sm text-muted">Nothing left to add for that search.</p>
+          ) : null}
+        </div>
+      ) : null}
+    </div>
   );
 }
 
@@ -52,15 +118,17 @@ export function HighlightBoard() {
           </p>
           <h2 className="font-display text-2xl tracking-tight sm:text-3xl">Your ranked file</h2>
         </div>
-        <p className="max-w-sm text-sm text-muted">
-          Star events on the timeline. Rank them here. Higher is hotter.
-        </p>
+        <AddEventPicker />
       </div>
+      <p className="mt-2 max-w-2xl text-sm text-muted">
+        Use <span className="text-watch">Add event</span> here, or tap Highlight on any
+        card in Timeline. Arrows rank; X drops it.
+      </p>
 
       {rows.length === 0 ? (
         <p className="mt-4 text-sm text-muted">
-          Nothing pinned. Open the timeline and hit Highlight on anything that should sit
-          on this desk.
+          Board is empty. Add the Iran visit, Denel tour, or anything else you want on
+          this desk.
         </p>
       ) : (
         <ol className="mt-4 grid gap-3">

@@ -81,24 +81,26 @@ function TimelinePage() {
               e.flagged ? "border-signal/35" : "border-border",
             )}
           >
-            <div className="flex flex-wrap items-center gap-2">
-              <time className="font-mono text-xs tabular-nums text-subtle">
-                {formatDeskDate(e.date)}
-              </time>
-              <SeverityPill value={e.severity} />
-              {e.flagged ? (
-                <span className="font-mono text-micro uppercase tracking-wider text-signal">
-                  Flagged
+            <div className="flex flex-wrap items-start justify-between gap-3">
+              <div className="flex min-w-0 flex-wrap items-center gap-2">
+                <time className="font-mono text-xs tabular-nums text-subtle">
+                  {formatDeskDate(e.date)}
+                </time>
+                <SeverityPill value={e.severity} />
+                {e.flagged ? (
+                  <span className="font-mono text-micro uppercase tracking-wider text-signal">
+                    Flagged
+                  </span>
+                ) : null}
+                <span className="font-mono text-micro uppercase tracking-wider text-subtle">
+                  {KINDS.find((k) => k.id === e.kind)?.label ?? e.kind}
                 </span>
-              ) : null}
-              <span className="font-mono text-micro uppercase tracking-wider text-subtle">
-                {KINDS.find((k) => k.id === e.kind)?.label ?? e.kind}
-              </span>
+              </div>
+              <HighlightToggle id={e.id} />
             </div>
             <h3 className="mt-2 text-base font-medium leading-snug sm:text-lg">{e.title}</h3>
             <p className="mt-2 text-sm leading-normal text-muted">{e.summary}</p>
             <div className="mt-3 flex flex-wrap items-center gap-3">
-              <HighlightToggle id={e.id} />
               <a
                 href={e.sourceUrl}
                 target="_blank"

@@ -14,6 +14,7 @@ import { Route as CongressRouteImport } from './routes/congress'
 import { Route as EnvoysRouteImport } from './routes/envoys'
 import { Route as ExposureRouteImport } from './routes/exposure'
 import { Route as MilitaryRouteImport } from './routes/military'
+import { Route as ScoringRouteImport } from './routes/scoring'
 import { Route as SourcesRouteImport } from './routes/sources'
 import { Route as TimelineRouteImport } from './routes/timeline'
 import { Route as WatchRouteImport } from './routes/watch'
@@ -43,6 +44,11 @@ const MilitaryRoute = MilitaryRouteImport.update({
   path: '/military',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ScoringRoute = ScoringRouteImport.update({
+  id: '/scoring',
+  path: '/scoring',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SourcesRoute = SourcesRouteImport.update({
   id: '/sources',
   path: '/sources',
@@ -65,6 +71,7 @@ export interface FileRoutesByFullPath {
   '/envoys': typeof EnvoysRoute
   '/exposure': typeof ExposureRoute
   '/military': typeof MilitaryRoute
+  '/scoring': typeof ScoringRoute
   '/sources': typeof SourcesRoute
   '/timeline': typeof TimelineRoute
   '/watch': typeof WatchRoute
@@ -75,6 +82,7 @@ export interface FileRoutesByTo {
   '/envoys': typeof EnvoysRoute
   '/exposure': typeof ExposureRoute
   '/military': typeof MilitaryRoute
+  '/scoring': typeof ScoringRoute
   '/sources': typeof SourcesRoute
   '/timeline': typeof TimelineRoute
   '/watch': typeof WatchRoute
@@ -86,6 +94,7 @@ export interface FileRoutesById {
   '/envoys': typeof EnvoysRoute
   '/exposure': typeof ExposureRoute
   '/military': typeof MilitaryRoute
+  '/scoring': typeof ScoringRoute
   '/sources': typeof SourcesRoute
   '/timeline': typeof TimelineRoute
   '/watch': typeof WatchRoute
@@ -98,6 +107,7 @@ export interface FileRouteTypes {
     | '/envoys'
     | '/exposure'
     | '/military'
+    | '/scoring'
     | '/sources'
     | '/timeline'
     | '/watch'
@@ -108,6 +118,7 @@ export interface FileRouteTypes {
     | '/envoys'
     | '/exposure'
     | '/military'
+    | '/scoring'
     | '/sources'
     | '/timeline'
     | '/watch'
@@ -118,6 +129,7 @@ export interface FileRouteTypes {
     | '/envoys'
     | '/exposure'
     | '/military'
+    | '/scoring'
     | '/sources'
     | '/timeline'
     | '/watch'
@@ -129,6 +141,7 @@ export interface RootRouteChildren {
   EnvoysRoute: typeof EnvoysRoute
   ExposureRoute: typeof ExposureRoute
   MilitaryRoute: typeof MilitaryRoute
+  ScoringRoute: typeof ScoringRoute
   SourcesRoute: typeof SourcesRoute
   TimelineRoute: typeof TimelineRoute
   WatchRoute: typeof WatchRoute
@@ -171,6 +184,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof MilitaryRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/scoring': {
+      id: '/scoring'
+      path: '/scoring'
+      fullPath: '/scoring'
+      preLoaderRoute: typeof ScoringRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/sources': {
       id: '/sources'
       path: '/sources'
@@ -201,6 +221,7 @@ const rootRouteChildren: RootRouteChildren = {
   EnvoysRoute: EnvoysRoute,
   ExposureRoute: ExposureRoute,
   MilitaryRoute: MilitaryRoute,
+  ScoringRoute: ScoringRoute,
   SourcesRoute: SourcesRoute,
   TimelineRoute: TimelineRoute,
   WatchRoute: WatchRoute,

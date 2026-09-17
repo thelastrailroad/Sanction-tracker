@@ -1,29 +1,18 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Pin } from "lucide-react";
 import {
-  Area,
-  AreaChart,
-  CartesianGrid,
-  ResponsiveContainer,
-  Tooltip,
-  XAxis,
-  YAxis,
-} from "recharts";
-import {
   ENVOY_CABLES,
   EVENTS,
-  FINANCIAL_SCORE,
   FLASH,
   INDICATORS,
-  PRESSURE_SCORE,
-  RISK_HISTORY,
   SA_MISSION,
   US_MISSION,
 } from "@/data";
 import { EscalationLadder } from "@/components/desk/ladder";
-import { RiskMeter } from "@/components/desk/risk-meter";
 import { SeverityPill } from "@/components/desk/severity";
 import { HighlightBoard, HighlightToggle } from "@/components/desk/highlights";
+import { IndexPrint } from "@/components/desk/index-print";
+import { ScoringReadme } from "@/components/desk/scoring-readme";
 import { formatDeskDate, formatShortDate } from "@/lib/utils";
 import { useWatchStore } from "@/lib/watch-store";
 
@@ -41,6 +30,10 @@ function Home() {
 
   return (
     <div className="grid gap-8">
+      <IndexPrint />
+
+      <ScoringReadme />
+
       <section className="rounded-xl border border-signal/40 bg-signal/10 p-5 sm:p-6">
         <p className="font-mono text-micro uppercase tracking-[0.18em] text-signal">
           {FLASH.kicker} · {formatDeskDate(FLASH.date)}
@@ -68,87 +61,14 @@ function Home() {
 
       <HighlightBoard />
 
-      <section className="grid gap-4 lg:grid-cols-2">
-        <RiskMeter
-          emphasis
-          label="Bilateral pressure"
-          score={PRESSURE_SCORE}
-          blurb="Visa restrictions, aid freeze, G20 snub, and military drills with China, Russia and Iran. This is already high. It is not yet a country embargo."
+      <section>
+        <HeaderRow
+          kicker="Path"
+          title="Escalation ladder"
+          to="/watch"
+          link="What to watch"
         />
-        <RiskMeter
-          label="Financial-sanctions proximity"
-          score={FINANCIAL_SCORE}
-          blurb="Visa bans are not asset freezes. Magnitsky, AGOA eligibility, and Russia/Iran helper authorities are the live financial path. Country-wide OFAC isolation remains a tail risk."
-        />
-      </section>
-
-      <section className="grid gap-6 lg:grid-cols-[1.15fr_0.85fr]">
-        <div>
-          <HeaderRow
-            kicker="Path"
-            title="Escalation ladder"
-            to="/watch"
-            link="What to watch"
-          />
-          <EscalationLadder />
-        </div>
-        <div>
-          <HeaderRow kicker="Series" title="Pressure vs finance" />
-          <div className="mt-3 h-64 rounded-xl border border-border bg-surface p-3 sm:h-72">
-            <ResponsiveContainer width="100%" height="100%">
-              <AreaChart data={RISK_HISTORY} margin={{ top: 8, right: 12, left: -12, bottom: 4 }}>
-                <CartesianGrid stroke="var(--color-border)" vertical={false} />
-                <XAxis
-                  dataKey="date"
-                  tick={{ fill: "var(--color-subtle)", fontSize: 10 }}
-                  axisLine={false}
-                  tickLine={false}
-                  interval={1}
-                  tickFormatter={(d: string) => {
-                    const [year, month] = d.split("-");
-                    return `${month}/${year?.slice(2) ?? ""}`;
-                  }}
-                />
-                <YAxis
-                  domain={[0, 100]}
-                  tick={{ fill: "var(--color-subtle)", fontSize: 10 }}
-                  axisLine={false}
-                  tickLine={false}
-                />
-                <Tooltip
-                  contentStyle={{
-                    background: "var(--color-elevated)",
-                    border: "1px solid var(--color-border)",
-                    borderRadius: 8,
-                    color: "var(--color-fg)",
-                    fontSize: 12,
-                  }}
-                />
-                <Area
-                  type="monotone"
-                  dataKey="pressure"
-                  name="Pressure"
-                  stroke="var(--color-signal)"
-                  fill="var(--color-signal)"
-                  fillOpacity={0.18}
-                  strokeWidth={2}
-                />
-                <Area
-                  type="monotone"
-                  dataKey="financial"
-                  name="Financial"
-                  stroke="var(--color-info)"
-                  fill="var(--color-info)"
-                  fillOpacity={0.12}
-                  strokeWidth={2}
-                />
-              </AreaChart>
-            </ResponsiveContainer>
-          </div>
-          <p className="mt-2 text-xs text-subtle">
-            Pressure moved first. Finance lags — until a named designation or an AGOA drop.
-          </p>
-        </div>
+        <EscalationLadder />
       </section>
 
       <section>
@@ -193,17 +113,17 @@ function Home() {
           <ul className="mt-3 grid gap-2">
             {latest.map((e) => (
               <li key={e.id} className="rounded-lg border border-border bg-surface p-4">
-                <div className="flex flex-wrap items-center gap-2">
-                  <time className="font-mono text-micro tabular-nums text-subtle">
-                    {formatShortDate(e.date)}
-                  </time>
-                  <SeverityPill value={e.severity} />
+                <div className="flex items-start justify-between gap-2">
+                  <div className="flex min-w-0 flex-wrap items-center gap-2">
+                    <time className="font-mono text-micro tabular-nums text-subtle">
+                      {formatShortDate(e.date)}
+                    </time>
+                    <SeverityPill value={e.severity} />
+                  </div>
+                  <HighlightToggle id={e.id} compact />
                 </div>
                 <p className="mt-2 text-sm font-medium leading-snug">{e.title}</p>
                 <p className="mt-1 line-clamp-2 text-sm text-muted">{e.summary}</p>
-                <div className="mt-3">
-                  <HighlightToggle id={e.id} />
-                </div>
               </li>
             ))}
           </ul>

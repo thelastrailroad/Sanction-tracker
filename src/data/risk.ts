@@ -1,7 +1,25 @@
+import { printAt } from "@/lib/csi";
 import type { RiskFactor, Severity } from "./types";
 
 export const DESK_AS_OF = "2026-09-17";
 export const DESK_CLASSIFICATION = "OPEN SOURCE";
+
+export const CSI_PRINT = printAt(DESK_AS_OF);
+export const PRESSURE_SCORE = CSI_PRINT.pressure;
+export const FINANCIAL_SCORE = CSI_PRINT.financial;
+export const CSI_SCORE = CSI_PRINT.csi;
+
+export function bandFor(score: number): Severity {
+  if (score >= 80) return "critical";
+  if (score >= 65) return "high";
+  if (score >= 45) return "elevated";
+  if (score >= 25) return "watch";
+  return "low";
+}
+
+export const PRESSURE_BAND = bandFor(PRESSURE_SCORE);
+export const FINANCIAL_BAND = bandFor(FINANCIAL_SCORE);
+export const CSI_BAND = bandFor(CSI_SCORE);
 
 export const PRESSURE_FACTORS: RiskFactor[] = [
   {
@@ -100,25 +118,6 @@ export const FINANCIAL_FACTORS: RiskFactor[] = [
   },
 ];
 
-function weighted(factors: RiskFactor[]): number {
-  const w = factors.reduce((s, f) => s + f.weight, 0);
-  return Math.round(factors.reduce((s, f) => s + f.score * f.weight, 0) / w);
-}
-
-export const PRESSURE_SCORE = weighted(PRESSURE_FACTORS);
-export const FINANCIAL_SCORE = weighted(FINANCIAL_FACTORS);
-
-export function bandFor(score: number): Severity {
-  if (score >= 80) return "critical";
-  if (score >= 65) return "high";
-  if (score >= 45) return "elevated";
-  if (score >= 25) return "watch";
-  return "low";
-}
-
-export const PRESSURE_BAND = bandFor(PRESSURE_SCORE);
-export const FINANCIAL_BAND = bandFor(FINANCIAL_SCORE);
-
 export const LADDER = [
   {
     step: 1,
@@ -168,21 +167,6 @@ export const LADDER = [
     status: "tail" as const,
     detail: "Armscor, Denel, Transnet, IDC, or minerals offtakers. Still politically expensive for Washington.",
   },
-];
-
-export const RISK_HISTORY = [
-  { date: "2022-12", label: "Lady R", pressure: 32, financial: 14 },
-  { date: "2023-02", label: "Mosi II", pressure: 38, financial: 16 },
-  { date: "2023-05", label: "Brigety", pressure: 44, financial: 20 },
-  { date: "2023-12", label: "ICJ filing", pressure: 48, financial: 22 },
-  { date: "2024-12", label: "Expropriation Act", pressure: 52, financial: 24 },
-  { date: "2025-02", label: "EO 14204", pressure: 64, financial: 30 },
-  { date: "2025-03", label: "Rasool expelled", pressure: 66, financial: 31 },
-  { date: "2025-09", label: "Review bills", pressure: 68, financial: 36 },
-  { date: "2025-11", label: "G20 boycott", pressure: 70, financial: 38 },
-  { date: "2026-01", label: "Will for Peace", pressure: 74, financial: 42 },
-  { date: "2026-07", label: "12.5% tariff", pressure: 72, financial: 40 },
-  { date: "2026-09", label: "Visa policy", pressure: PRESSURE_SCORE, financial: FINANCIAL_SCORE },
 ];
 
 export const FLASH = {

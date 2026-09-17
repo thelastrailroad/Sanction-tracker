@@ -4,18 +4,20 @@ import {
   Activity,
   Building2,
   Flag,
+  Gauge,
   Landmark,
   LayoutGrid,
   Radio,
   Shield,
   Ship,
 } from "lucide-react";
-import { DESK_AS_OF, DESK_CLASSIFICATION, PRESSURE_BAND } from "@/data";
+import { DESK_AS_OF, DESK_CLASSIFICATION, CSI_BAND, CSI_SCORE } from "@/data";
 import { cn, formatDeskDate } from "@/lib/utils";
 import { SeverityPill } from "./severity";
 
 const NAV = [
   { to: "/", label: "Desk", icon: LayoutGrid },
+  { to: "/scoring", label: "Scoring", icon: Gauge },
   { to: "/timeline", label: "Timeline", icon: Activity },
   { to: "/envoys", label: "Envoys", icon: Flag },
   { to: "/congress", label: "Congress", icon: Landmark },
@@ -49,10 +51,11 @@ export function DeskShell({ children }: { children: ReactNode }) {
                 {DESK_CLASSIFICATION}
               </p>
               <p className="mt-1 font-mono text-xs tabular-nums text-muted">
-                As of {formatDeskDate(DESK_AS_OF)}
+                Print {formatDeskDate(DESK_AS_OF)}
               </p>
-              <div className="mt-2 flex justify-end">
-                <SeverityPill value={PRESSURE_BAND} />
+              <div className="mt-2 flex items-center justify-end gap-2">
+                <span className="font-display text-2xl tabular-nums leading-none">{CSI_SCORE}</span>
+                <SeverityPill value={CSI_BAND} />
               </div>
             </div>
           </div>
