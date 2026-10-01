@@ -2,6 +2,34 @@ import type { DeskEvent } from "./types";
 
 export const EVENTS: DeskEvent[] = [
   {
+    id: "e-2026-09-29-demarche",
+    date: "2026-09-29",
+    title: "DIRCO démarches Bozell over ‘undiplomatic conduct’",
+    summary:
+      "Pretoria called in the US ambassador on 29 Sep — DIRCO said it was the third démarche since he sat. Trigger was the post-visa media blitz and the embassy op-ed restating the five asks. State: not interested in dialogue for dialogue’s sake. Formal protest, not a policy U-turn.",
+    kind: "sa-response",
+    severity: "elevated",
+    channels: ["diplomatic", "visa"],
+    actors: ["SA", "US"],
+    source: "Reuters / Daily Maverick",
+    sourceUrl: "https://www.dailymaverick.co.za/article/2026-09-29-us-ambassador-bozell-demarched-by-sa-government/",
+    flagged: true,
+  },
+  {
+    id: "e-2026-09-18-graham-sign",
+    date: "2026-09-18",
+    title: "Trump signs Lindsey O. Graham Sanctioning Russia and Iran Act",
+    summary:
+      "Enactment after the 16 Sep House vote. Authorises tariffs up to 100% on major buyers of Russian energy and on jurisdictions that help Moscow evade sanctions; first mandatory designation review is due around 18 Oct. Secondary-sanctions hook on Pretoria if another Lady R-class event occurs. Desk already logged passage; this is the law.",
+    kind: "congress",
+    severity: "high",
+    channels: ["financial", "military", "trade"],
+    actors: ["US", "RU", "IR"],
+    source: "White House / Sullivan & Cromwell",
+    sourceUrl: "https://www.sullcrom.com/insights/memo/2026/September/Graham-Act-Expands-Russia-Tariffs-Sanctions",
+    flagged: true,
+  },
+  {
     id: "e-2026-09-17-lamola",
     date: "2026-09-17",
     title: "Lamola tells Pretoria it will not surrender domestic policy",
