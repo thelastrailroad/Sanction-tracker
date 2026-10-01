@@ -91,6 +91,8 @@ const OVERRIDES: Record<
   "e-2026-09-16-bozell": { pressure: 8, financial: 5, persist: 0.15, halfLifeDays: 45 },
   "e-2026-09-16-graham": { pressure: 5, financial: 11, persist: 0.36, halfLifeDays: 200 },
   "e-2026-09-17-lamola": { pressure: 6, financial: 1, persist: 0.08, halfLifeDays: 35 },
+  "e-2026-09-18-graham-sign": { pressure: 3, financial: 6, persist: 0.4, halfLifeDays: 220 },
+  "e-2026-09-29-demarche": { pressure: 5, financial: 0.5, persist: 0.08, halfLifeDays: 30 },
 };
 
 export function addDays(iso: string, days: number): string {
