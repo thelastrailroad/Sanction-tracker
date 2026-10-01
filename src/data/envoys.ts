@@ -146,7 +146,7 @@ export const ENVOY_CABLES: EnvoyCable[] = [
   {
     id: "us-2026-06-24-iran",
     mission: "us",
-    date: "2026-09-24",
+    date: "2026-06-24",
     kind: "social",
     title: "Bozell: Iran red carpet and Mashatile in Beijing is a choice",
     quote:
