@@ -74,6 +74,34 @@ export const FIVE_ASKS = [
 
 export const ENVOY_CABLES: EnvoyCable[] = [
   {
+    id: "sa-2026-09-29-demarche",
+    mission: "sa",
+    date: "2026-09-29",
+    kind: "press",
+    title: "DIRCO démarches Bozell — third of this posting",
+    quote:
+      "We can confirm that we demarched Ambassador Bozell. The third demarche since he started his duties nine months ago.",
+    summary:
+      "Formal protest over the post-visa interview circuit. State reply: not interested in dialogue for dialogue’s sake. Meyer’s keep-talking line is now running against DIRCO’s protest file.",
+    source: "Reuters / Daily Maverick",
+    sourceUrl: "https://www.dailymaverick.co.za/article/2026-09-29-us-ambassador-bozell-demarched-by-sa-government/",
+    flagged: true,
+  },
+  {
+    id: "us-2026-09-29-oped",
+    mission: "us",
+    date: "2026-09-29",
+    kind: "press",
+    title: "Bozell op-ed: The Cost of Doing Nothing",
+    quote:
+      "This visa restriction policy is a first response, calibrated and specific. But I won’t pretend it’s the last word either.",
+    summary:
+      "Embassy primary. Restates the five asks: Afrikaner refugee processing, condemn Kill the Boer, rural-crime plan, BEE alternatives for US firms in telecoms and mining, no nil-compensation takings. Says Pretoria met the first two more or less and failed the rest.",
+    source: "US Embassy Pretoria",
+    sourceUrl: "https://za.usembassy.gov/op-ed-by-ambassador-l-brent-bozell-iii-u-s-ambassador-to-south-africa/",
+    flagged: true,
+  },
+  {
     id: "sa-2026-09-17-meyer-talks",
     mission: "sa",
     date: "2026-09-17",
@@ -118,7 +146,7 @@ export const ENVOY_CABLES: EnvoyCable[] = [
   {
     id: "us-2026-06-24-iran",
     mission: "us",
-    date: "2026-06-24",
+    date: "2026-09-24",
     kind: "social",
     title: "Bozell: Iran red carpet and Mashatile in Beijing is a choice",
     quote:
